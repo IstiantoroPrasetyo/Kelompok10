@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Models\User;
 
+use App\Models\Doctor;
+
 class HomeController extends Controller
 {
     public function redirect(){
@@ -25,6 +27,12 @@ class HomeController extends Controller
     }
 
     public function index(){
-        return view('user.home');
+        if(Auth::id()){
+            return redirect('home');
+        }else{
+            $doctor = doctor::all();
+            return view('user.home',compact('doctor'));
+        }
+        
     }
 }
