@@ -12,12 +12,15 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
+        
         <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    
     </head>
     <body>
         <div class="font-sans text-gray-900 antialiased">
             {{ $slot }}
         </div>
+
         <script src="{{asset('js/app.js')}}"></script>
     </body>
 </html>

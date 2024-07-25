@@ -7,16 +7,14 @@
 
     <style type="text/css">
         label{
-        display: inline-block;
-        width: 200px;
+            display: inline-block;
+
+            width: 200px;
         }
-
     </style>
-
-    
     
     @include('admin.css')
-
+    
   </head>
   <body>
     <div class="container-scroller">
@@ -49,48 +47,53 @@
         <!-- partial -->
 
         <div class="container-fluid page-body-wrapper">
-            <div class="container" align="center" style="padding: 100px">
 
-                @if(session()->has('message'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    {{ session()->get('message') }}
-                </div>
-                @endif
+            <div class="container" align="center" style="padding-top: 100px;">
 
-                <form action="{{url('editdoctor',$data->id)}}" method="POST" enctype="multipart/form-data">
+              @if(session()->has('message'))
+              <div class="alert alert-success alert-dismissible fade show" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+                  {{ session()->get('message') }}
+              </div>
+              @endif
+
+                <form action="{{url('sendemail',$data->id)}}" method="POST" enctype="multipart/form-data">
+
                     @csrf
-                    <div style="padding:15px;">
-                        <label>Doctor Name</label>
-                        <input type="text" style="color:black;" name="name" value="{{$data->name}}">
+
+                    <div style="padding: 15px;">
+                        <label>Greeting</label>
+                        <input type="text" style="color:black;" name="greeting" required="">
                     </div>
-                    <div style="padding:15px;">
-                        <label>Phone</label>
-                        <input type="number" style="color:black;" name="phone" value="{{$data->phone}}">
+
+                    <div style="padding: 15px;">
+                        <label>Body</label>
+                        <input type="text" style="color:black;" name="body" required="">
                     </div>
-                    <div style="padding:15px;">
-                        <label>Speciality</label>
-                        <input type="text" style="color:black;" name="speciality" value="{{$data->speciality}}">
+
+                    <div style="padding: 15px;">
+                        <label>Action Text</label>
+                        <input type="text" style="color:black;" name="actiontext" required="">
                     </div>
-                    <div style="padding:15px;">
-                        <label>Room</label>
-                        <input type="text" style="color:black;" name="room" value="{{$data->room}}">
+
+                    <div style="padding: 15px;">
+                        <label>Action URL</label>
+                        <input type="text" style="color:black;" name="actionurl" required="">
                     </div>
-                    <div style="padding:15px;">
-                        <label>Old Image</label>
-                        <img height="150" width="150" src="doctorimage/{{$data->image}}">
+
+                    <div style="padding: 15px;">
+                        <label>End Part</label>
+                        <input type="text" style="color:black;" name="endpart" required="">
                     </div>
-                    <div style="padding:15px;">
-                        <label>Change Image</label>
-                        <input type="file" name="file">
-                    </div>
-                    <div style="padding:15px;">
-                        <input type="submit" class="btn btn-primary">
+
+                    <div style="padding: 15px;">
+                        <input type="submit" class="btn btn-success">
                     </div>
                 </form>
             </div>
+
         </div>
         
     <!-- container-scroller -->

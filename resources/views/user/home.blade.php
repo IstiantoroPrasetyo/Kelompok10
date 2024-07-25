@@ -96,6 +96,7 @@
             </x-app-layout>
 
             @else
+
             <li class="nav-item">
               <a class="btn btn-primary ml-lg-3" href="{{route('login')}}">Login</a>
             </li>
@@ -107,6 +108,8 @@
             @endauth
 
             @endif
+
+
           </ul>
         </div> <!-- .navbar-collapse -->
       </div> <!-- .container -->
